@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            margin: 0;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .heart {
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 0.5s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -60px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 60px;
+            top: 0;
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(-45deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(-45deg);
+            }
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 36px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            font-size: 20px;
+            background: white;
+            color: #ff3366;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heart"></div>
+    <p id="message"></p>
+    <button class="button" onclick="showSurprise()">Click Me 💖</button>
+
+    <script>
+        const messages = [
+            "Ye Bhone Myat is a Dog 🐶"
+            "Hey, you! ❤️",
+            "You're amazing! ✨",
+            "Just wanted to make you smile 😊",
+            "Will you be my Valentine? 💌"
+        ];
+
+        let index = 0;
+        const messageElement = document.getElementById("message");
+
+        function showMessage() {
+            if (index < messages.length) {
+                messageElement.textContent = messages[index];
+                index++;
+                setTimeout(showMessage, 2000);
+            }
+        }
+
+        setTimeout(showMessage, 1000);
+
+        function showSurprise() {
+            alert("You just made my heart beat faster! 💕");
+        }
+    </script>
+
+  <audio src="zozolicious.co.za - Sunflower - Rex Orange County - Instrumental (256 KBps).mp3" autoplay></audio>
+</body>
+
+</html>
